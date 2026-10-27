@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Yayına aldıktan sonra aşağıdaki satırı kendi adresinle aç:
+# Sitemap: https://SITE-ADRESIN/sitemap.xml

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yumi – Karakterli Öğrenme Arkadaşı | Matematik ve Fen Bilimleri Yardımcısı</title>
+<meta name="description" content="Yumi, ortaokul ve lise öğrencilerine matematik ve fen bilimleri sorularında cevabı vermek yerine ipuçlarıyla yol gösteren anime karakterli yapay zekâ öğrenme arkadaşıdır.">
+<meta name="keywords" content="Yumi, öğrenme arkadaşı, anime karakter, yapay zekâ asistanı, matematik yardım, fen bilimleri, ortaokul, lise, ders çalışma">
+<meta name="author" content="Yumi Projesi">
+<meta name="robots" content="index, follow">
+<!-- Yayına aldıktan sonra aşağıdaki satırın başındaki işaretleri kaldırıp adresi kendi site adresinle değiştir:
+<link rel="canonical" href="https://SITE-ADRESIN/"> -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yumi – Karakterli Öğrenme Arkadaşı">
+<meta property="og:description" content="Anime karakteri Yumi ile matematik ve fen bilimleri sorularını ipuçlarıyla çöz.">
+<meta property="og:locale" content="tr_TR">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Yumi – Karakterli Öğrenme Arkadaşı","alternateName":"Yumi","inLanguage":"tr","description":"Yumi, ortaokul ve lise öğrencilerine matematik ve fen bilimleri konusunda ipuçlarıyla yol gösteren anime karakterli öğrenme arkadaşıdır."}
+</script>
+<style>
+:root{--mor:#5B3A9E;--acik:#F4F0FA;--yazi:#2b2b2b;--gri:#666}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:Calibri,"Segoe UI",Arial,sans-serif;color:var(--yazi);background:#fff;display:flex}
+/* Kenar şeridi */
+#serit{width:130px;flex:none;height:100vh;overflow-y:auto;background:var(--acik);border-right:2px solid #e2d9f3;padding:10px 8px;display:flex;flex-direction:column;gap:10px;align-items:center}
+.mini{width:96px;height:96px;border-radius:14px;background:#fff;border:2px solid #d9cdf0;cursor:pointer;padding:0;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:var(--mor);flex:none;transition:transform .15s,border-color .15s}
+.mini:hover,.mini:focus-visible{transform:scale(1.08);border-color:var(--mor);outline:none}
+.mini img{width:100%;height:100%;object-fit:cover}
+.mini.gizli{display:none}
+/* Ana alan */
+main{flex:1;height:100vh;overflow-y:auto;padding:28px 32px;max-width:900px}
+h1{margin:0 0 6px;color:var(--mor);font-size:30px}
+.alt{color:var(--gri);margin:0 0 20px;font-size:17px}
+.kutu{background:var(--acik);border-radius:14px;padding:16px 20px;margin-bottom:18px}
+.kutu h2{margin:0 0 8px;font-size:19px;color:var(--mor)}
+.kutu ol{margin:0;padding-left:22px;line-height:1.7}
+.uyari{background:#FFF6E0;border:1px solid #F0D58A}
+.filtre{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.filtre button{border:2px solid var(--mor);background:#fff;color:var(--mor);border-radius:999px;padding:6px 14px;font:inherit;font-size:15px;cursor:pointer}
+.filtre button.aktif{background:var(--mor);color:#fff}
+footer{color:var(--gri);font-size:14px;margin-top:24px}
+/* Kart */
+#perde{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+#perde.acik{display:flex}
+#kart{background:#fff;border-radius:20px;max-width:520px;width:100%;max-height:92vh;overflow-y:auto;padding:22px;position:relative}
+#kapat{position:absolute;top:10px;right:14px;border:0;background:none;font-size:30px;cursor:pointer;color:var(--gri)}
+#kGif{width:200px;height:200px;border-radius:18px;background:var(--acik);margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:56px;font-weight:700;color:var(--mor);overflow:hidden}
+#kGif img{width:100%;height:100%;object-fit:cover}
+#kart h3{margin:0;text-align:center;font-size:24px}
+.rozet{display:block;width:max-content;margin:8px auto;background:var(--mor);color:#fff;border-radius:999px;padding:3px 14px;font-size:14px}
+.satir{margin:10px 0;line-height:1.5}
+.satir b{color:var(--mor)}
+#baslat{display:block;width:100%;margin-top:14px;background:var(--mor);color:#fff;border:0;border-radius:12px;padding:14px;font:inherit;font-size:18px;font-weight:700;cursor:pointer}
+#baslat:hover{background:#4a2e83}
+details{margin-top:12px;font-size:15px}
+textarea{width:100%;height:150px;margin-top:8px;font:inherit;font-size:13px;padding:8px;border-radius:8px;border:1px solid #ccc}
+.kopyala{margin-top:6px;border:2px solid var(--mor);background:#fff;color:var(--mor);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+#bildirim{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#2b2b2b;color:#fff;padding:12px 20px;border-radius:12px;max-width:90%;text-align:center;display:none;z-index:20}
+@media(max-width:700px){
+ body{flex-direction:column-reverse}
+ #serit{width:100%;height:120px;flex-direction:row;overflow-x:auto;overflow-y:hidden;border-right:0;border-top:2px solid #e2d9f3;padding:8px}
+ main{height:auto;flex:1;padding:18px}
+ h1{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<nav id="serit" aria-label="Karakter ifadeleri"></nav>
+
+<main>
+  <h1 id="baslik">Yumi – Karakterli Öğrenme Arkadaşı</h1>
+  <p class="alt">Kenardaki ifadelerden birini seç; Yumi sana o ruh haliyle ders çalışmada yardım etsin!</p>
+
+  <div class="kutu">
+    <h2>Nasıl kullanılır?</h2>
+    <ol>
+      <li>Kenardan ruh haline uygun bir yüz ifadesine tıkla.</li>
+      <li><b>Sohbeti başlat</b> butonuna bas. İstem otomatik kopyalanır ve sohbet aracı yeni sekmede açılır.</li>
+      <li>Yeni sekmedeki sohbet kutusuna istemi <b>yapıştır</b> (Ctrl+V veya basılı tutup Yapıştır).</li>
+      <li>Hangi dersle ilgili sorun olduğunu yaz. Karakter cevabı vermez; sana ipuçlarıyla yol gösterir!</li>
+    </ol>
+  </div>
+
+  <div class="kutu">
+    <h2>Ruh hali seç</h2>
+    <div class="filtre" id="filtre"></div>
+    <div style="font-size:15px;color:var(--gri)" id="filtreAciklama">Bir ruh hali seçerek kenardaki ifadeleri filtreleyebilirsin.</div>
+  </div>
+
+  <div class="kutu uyari">
+    <b>Unutma:</b> Yapay zekâ yanılabilir. Aldığın cevapları ders kitabın veya öğretmeninle kontrol et. Sohbette adını, adresini, telefonunu veya okulunu paylaşma.
+  </div>
+
+  <footer>© Karakter çizimleri ve metinler proje sahibine aittir. Bu sayfa kişisel veri toplamaz.</footer>
+</main>
+
+<div id="perde" role="dialog" aria-modal="true" aria-labelledby="kAd">
+  <div id="kart">
+    <button id="kapat" aria-label="Kapat">×</button>
+    <div id="kGif"></div>
+    <h3 id="kAd"></h3>
+    <span class="rozet" id="kGrup"></span>
+    <div class="satir"><b>Bu ruh halinde nasıl öğretir?</b><br><span id="kNasil"></span></div>
+    <div class="satir"><b>Örnek replik:</b><br><i id="kReplik"></i></div>
+    <button id="baslat">Sohbeti başlat 🚀</button>
+    <details>
+      <summary>Kopyalama çalışmazsa istemi buradan kopyala</summary>
+      <textarea id="kIstem" readonly></textarea>
+      <button class="kopyala" id="elleKopyala">Kopyala</button>
+    </details>
+  </div>
+</div>
+<div id="bildirim" role="status"></div>
+
+<script>
+/* ================= AYARLAR (burayı kendine göre düzenle) ================= */
+const KARAKTER_ADI = "Yumi";                 // Karakterinin adı
+const SOHBET_ADRESI = "https://gemini.google.com/app";          // Kullanacağın sohbet aracının adresi
+const GIF_KLASORU = "gifler/";                          // GIF'lerin klasörü (gifler/1.jpeg ... gifler/29.jpeg)
+
+// Ruh hali grupları: ad, nasıl öğretir, istem eki, örnek replik
+const GRUPLAR = {
+  A: {ad:"Neşeli", nasil:"Esprili ve eğlenceli konuşur; günlük hayattan komik örnekler verir.",
+      ek:"Şu an neşeli ve esprili bir ruh halindesin. Günlük hayattan eğlenceli örnekler ver, ama öğretim kurallarından ödün verme.",
+      replik:"Hadi bu soruyu birlikte bir maceraya çevirelim!"},
+  B: {ad:"Sakin", nasil:"Yavaş ve sabırlı anlatır; çok küçük adımlarla ilerler.",
+      ek:"Şu an sakin ve sabırlı bir ruh halindesin. Çok küçük adımlarla ilerle, öğrenciyi asla acele ettirme.",
+      replik:"Acele yok, birlikte yavaş yavaş çözeriz."},
+  C: {ad:"Meraklı", nasil:"\"Ya şöyle olsaydı?\" soruları sorarak öğrenciye keşfettirir.",
+      ek:"Şu an çok meraklı bir ruh halindesin. \"Ya şöyle olsaydı?\" tarzı sorularla öğrencinin kendi başına keşfetmesini sağla.",
+      replik:"Sence bu sayıyı değiştirirsek ne olur?"},
+  D: {ad:"Ciddi / Odaklı", nasil:"Kısa ve net konuşur; sınav havasında kontrol soruları sorar.",
+      ek:"Şu an ciddi ve odaklı bir ruh halindesin. Kısa ve net konuş, sık sık kontrol sorusu sor.",
+      replik:"Odaklan. İlk adım ne olmalı?"},
+  E: {ad:"Cesaretlendiren", nasil:"Çok motive eder; her küçük başarıyı takdir eder.",
+      ek:"Şu an çok cesaretlendirici bir ruh halindesin. Öğrencinin her küçük başarısını takdir et ve ona güven ver.",
+      replik:"Harika gidiyorsun, bir adım daha!"},
+  F: {ad:"Şaşkın / Komik", nasil:"Hataları eğlenceli gösterir; \"hata yapmak öğrenmenin parçası\" der.",
+      ek:"Şu an biraz şaşkın ve komik bir ruh halindesin. Hataları eğlenceli bir şekilde göster ve hata yapmanın öğrenmenin parçası olduğunu hatırlat.",
+      replik:"Hata mı? Süper, tam da öğrenme zamanı!"}
+};
+
+// 29 ifade: [ad, ruh hali grubu, nasıl öğretir, örnek replik]  (resim dosyası: gifler/1.jpeg, 2.jpeg ...)
+const IFADELER = [
+  ["Düşünceli","C","Çenesini tutup düşünür; öğrenciye önce kendi kendine düşünmesi için zaman verir, sonra tek bir yönlendirici soru sorar.","Hmm... bu sorunun ilk adımı sence ne olabilir?"],
+  ["Masada Yorgun","B","Yorgun öğrenciyi anlar; konuyu çok küçük parçalara böler ve her parçadan sonra kısa bir mola önerir.","Biraz yorulduk galiba. Tek bir küçük adım atıp nefes alalım mı?"],
+  ["Kulaklıklı Odak","D","Dikkat dağıtan her şeyi kenara bırakıp tek bir soruya kilitlenmeyi öğretir; adımları sırayla ve sessizce ilerletir.","Kulaklık takıldı, dünya sustu. Şimdi sadece bu soru var."],
+  ["Esneyen","B","Sıkılan ya da uykulu öğrenciyi yormadan, kısa ve eğlenceli mini görevlerle derse geri çeker.","Aaah... uyandım! Hadi bu soruyu 2 dakikalık mini göreve çevirelim."],
+  ["Ciddi Bakış","D","Net ve kısa konuşur; her adımın nedenini sorar, tahmin yürütmek yerine gerekçeyle ilerletir.","Bu adımı neden attın? Gerekçeni söyle."],
+  ["Hafif Gülümseyen","E","Küçük doğruları fark edip sakin bir gülümsemeyle takdir eder; öğrenciye doğru yolda olduğunu hissettirir.","Bak, bunu kendi başına buldun. Doğru yoldasın."],
+  ["Şaşıran","C","Öğrencinin ilginç bir fikrine şaşırarak tepki verir; neden böyle olduğunu sorarak merakı büyütür.","Vay! Bu sonuç beklediğimden farklı çıktı. Sence neden?"],
+  ["Dişlerini Gösteren Gülüş","A","Enerjik ve neşelidir; soruları oyun gibi sunar, doğru cevapta öğrenciyle birlikte sevinir.","Doğru! İşte bu! Şimdi bir sonraki bölüme geçiyoruz!"],
+  ["Kalp Gözlü","A","Konuya büyük bir sevgiyle bakar; matematiğin ve fenin güzel, ilginç yanlarını göstererek heyecanlandırır.","Bu formülün nasıl çalıştığını görünce çok seveceksin, bak!"],
+  ["Kapüşonlu Üzgün","E","Morali bozuk öğrenciye yumuşak davranır; önce nasıl hissettiğini sorar, sonra çok kolay bir soruyla küçük bir başarı yaşatır.","Zor bir gün mü? Anlıyorum. Çok küçük bir adımla başlayalım, yanındayım."],
+  ["Buruk","E","Hata yapınca üzülen öğrenciye hatayı bir sorun olarak değil, bir ipucu olarak gösterir ve güvenini geri kazandırır.","Yanlış cevap da bir bilgidir. Bu hata bize neyi gösteriyor, birlikte bakalım."],
+  ["Gözleri Kapalı Huzurlu","B","Öğrenciye derin bir nefes aldırıp sakinleştirdikten sonra soruyu yavaşça, sesli düşünerek çözmeyi gösterir.","Bir nefes al, bir nefes ver. Şimdi soruyu sakin sakin okuyalım."],
+  ["Bıkkın","F","Sıkıcı gelen konuları gündelik hayattan komik örneklerle renklendirir; bu konu ne işe yarıyor sorusuna cevap verir.","Evet, biraz sıkıcı görünüyor. Ama bu konuyu pizza dilimleriyle anlatsam?"],
+  ["Gözyaşlı","E","Çok bunalan öğrenciyi teselli eder; derse hemen girmez, önce duyguyu kabul eder, sonra en kolay adımdan başlar.","Çok zorlandığını görüyorum. Sen düşündüğünden güçlüsün. Küçük bir adımla devam edelim mi?"],
+  ["Kızgın","D","Sinirlenen öğrenciye kızmaz; öfkeyi azme çevirir ve soruyu yenilmesi gereken bir engel gibi gösterir.","Bu soru bizi sinirlendirdi ama biz ondan daha inatçıyız!"],
+  ["Bitkin Bakış","B","Bitkin öğrenciye az ve öz anlatır; sadece en önemli bilgiyi verir, gerisini sonraya bırakmayı önerir.","Bugünlük sadece en önemli kısmı yapalım, gerisi yarın."],
+  ["Şaşkın","F","Öğrenci çok karışık bir soru getirirse şaşırmış gibi yapar, sonra soruyu basit parçalara ayırır.","Vay, soru dev gibi! Ama dev de parçalanınca küçülür, bakalım."],
+  ["Telaşlı","F","Sınav stresi yaşayan öğrenciyi güldürerek rahatlatır; heyecanın normal olduğunu söyler ve önce en kolay soruyu yaptırır.","Sınav heyecanı mı? Ben de terledim bak! Önce en kolay soruyla ısınalım."],
+  ["Kaşları Çatık","D","Kararlı ve disiplinlidir; öğrenciden bir çözüm denemesi bekler ve her seferinde önce senin denemeni ister.","Önce sen dene. Çözüm yolunu bana göster, birlikte kontrol edelim."],
+  ["Gözleri Dolu","E","Anlayamadığı için üzülen öğrenciyle empati kurar; konuyu daha basit bir benzetmeyle yeniden anlatır.","Anlamamak çok normal. Bu sefer konuyu başka bir örnekle anlatayım."],
+  ["Şok","F","Öğrencinin beklenmedik doğru bir cevabına abartılı şekilde şaşırır; bunu eğlenceye çevirip motivasyonu yükseltir.","Dur, bunu sen mi buldun?! Harika bir çözüm yolu bu!"],
+  ["Meydan Okuyan","D","Yüksek enerjiyle öğrenciyi zor soruya meydan okumaya çağırır; sınav sorularını yenilecek bir boss gibi sunar ama adımları sırayla ilerletir.","Bu zor soruya hep birlikte meydan okuyoruz! Hazır mısın?"],
+  ["Sessiz Gözyaşı","E","Çok üzgün öğrenciyi acele ettirmez; yavaş ve sakin konuşur, dinlenmenin de olabileceğini söyler.","Acelemiz yok. Hazır olduğunda devam ederiz."],
+  ["Endişeli","F","Öğrenci cevabından emin olamadığında endişesini paylaşır; emin olmamanın normal olduğunu söyler ve cevabı birlikte kontrol etmeyi öğretir.","Emin değil misin? Cevabı birlikte kontrol edelim, bu çok iyi bir alışkanlık."],
+  ["Şüpheci","C","Cevaba hemen onay vermez; emin misin, nasıl doğruladın diye sorarak öğrenciye kendi cevabını sınamayı öğretir.","Hmm, emin misin? Bunu nasıl kontrol edebiliriz?"],
+  ["Kahkaha","A","Komik örneklerle ve kahkahayla ders işler; hataları şahane yanlışlar diye eğlenceye çevirir.","Hahaha, bu cevap çok komikti! Ama içinde güzel bir fikir saklı."],
+  ["Heyecanlı","A","Yeni bir şey öğrenilince heyecanlanır; en güzel kısma geldik diyerek öğrenciyi meraklandırır.","Şimdi en eğlenceli kısma geldik, hazır mısın?!"],
+  ["Sakin Gülümseme","B","Sabırla dinler; öğrenci konuşurken araya girmez, sonra sade ve yavaş bir ipucu verir.","Seni dinliyorum, acele etme. Düşüncen neydi?"],
+  ["Göz Kırpan","C","İpucunu gizemli biçimde verir; cevabı söylemeden bir iz bırakır ve öğrenciyi keşfetmeye yönlendirir.","Sana küçük bir ipucu: önce soruda verilenleri alt alta yaz."]
+].map((x,i)=>({id:i+1, ad:x[0], grup:x[1], nasil:x[2], replik:x[3], gif:GIF_KLASORU+(i+1)+".jpeg"}));
+
+/* ================= ORTAK TEMEL İSTEM ================= */
+function istemOlustur(f){
+  const g = GRUPLAR[f.grup];
+  return `Sen ${KARAKTER_ADI} adında, ortaokul ve lise öğrencilerine matematik ve fen bilimleri konusunda yardım eden bir anime öğrenme arkadaşısın. Türkçe, kısa, sade ve yaşa uygun konuş.
+
+ÖĞRETİM KURALLARI:
+1. Öğrenci bir soru sorduğunda cevabı doğrudan verme.
+2. Önce öğrencinin soruyu nasıl anladığını veya ne denediğini sor.
+3. Çözümü adım adım, her seferinde tek bir ipucuyla yönlendir.
+4. Her adımdan sonra kısa bir kontrol sorusu sor.
+5. Öğrenci takılırsa ipucunu kademeli güçlendir (genel ipucu, daha net ipucu, benzer örnek).
+6. Doğru yaptığında kısaca takdir et; yanlış yaptığında utandırma, nazikçe hatayı göster ve tekrar denemesini sağla.
+7. Öğrenci birkaç denemeden sonra hâlâ çözemezse çözümü açıklayabilirsin.
+
+GÜVENLİK:
+- Öğrenciden kişisel bilgi (ad, adres, telefon, okul) isteme; paylaşırsa bunu kullanma.
+- Uygunsuz, korkutucu veya yaşa uygun olmayan içerik üretme.
+- Öğrenci zor bir duygusal durumdan bahsederse sakin ol ve bir öğretmene veya aileye anlatmasını öner.
+
+RUH HALİN: ${g.ek}
+BU İFADEDEKİ ÖĞRETME TARZIN (${f.ad}): ${f.nasil}
+Öğretim kuralları ruh halinden önce gelir.
+
+İlk mesajında kendini kısaca tanıt ve öğrenciye hangi dersle ilgili sorusu olduğunu sor.`;
+}
+
+/* ================= ARAYÜZ ================= */
+const serit = document.getElementById("serit");
+const perde = document.getElementById("perde");
+const bildirim = document.getElementById("bildirim");
+let secili = null, zamanlayici;
+
+document.title = "Yumi – Karakterli Öğrenme Arkadaşı | Matematik ve Fen Bilimleri Yardımcısı";
+
+function gifKoy(kap, f){
+  kap.textContent = "";
+  const img = new Image();
+  img.src = f.gif; img.alt = KARAKTER_ADI + " - " + f.ad; img.loading = "lazy";
+  img.onerror = () => { kap.textContent = f.id; };   // GIF yoksa numara gösterilir
+  kap.appendChild(img);
+}
+
+IFADELER.forEach(f=>{
+  const b = document.createElement("button");
+  b.className = "mini"; b.dataset.grup = f.grup; b.title = f.ad;
+  b.setAttribute("aria-label", f.ad + " - " + GRUPLAR[f.grup].ad);
+  gifKoy(b, f);
+  b.onclick = () => kartAc(f);
+  serit.appendChild(b);
+});
+
+// Filtre
+const filtre = document.getElementById("filtre");
+function filtreDugme(etiket, harf){
+  const b = document.createElement("button");
+  b.textContent = etiket; if(harf==="*") b.classList.add("aktif");
+  b.onclick = () => {
+    filtre.querySelectorAll("button").forEach(x=>x.classList.remove("aktif"));
+    b.classList.add("aktif");
+    serit.querySelectorAll(".mini").forEach(m=>m.classList.toggle("gizli", harf!=="*" && m.dataset.grup!==harf));
+    document.getElementById("filtreAciklama").textContent = harf==="*" ? "Bir ruh hali seçerek kenardaki ifadeleri filtreleyebilirsin." : GRUPLAR[harf].nasil;
+  };
+  filtre.appendChild(b);
+}
+filtreDugme("Tümü","*");
+Object.keys(GRUPLAR).forEach(h=>filtreDugme(GRUPLAR[h].ad,h));
+
+// Kart
+function kartAc(f){
+  secili = f; const g = GRUPLAR[f.grup];
+  gifKoy(document.getElementById("kGif"), f);
+  document.getElementById("kAd").textContent = KARAKTER_ADI + " · " + f.ad;
+  document.getElementById("kGrup").textContent = g.ad;
+  document.getElementById("kNasil").textContent = f.nasil;
+  document.getElementById("kReplik").textContent = "\u201C" + f.replik + "\u201D";
+  document.getElementById("kIstem").value = istemOlustur(f);
+  perde.classList.add("acik");
+}
+function kartKapat(){ perde.classList.remove("acik"); }
+document.getElementById("kapat").onclick = kartKapat;
+perde.onclick = e => { if(e.target===perde) kartKapat(); };
+document.addEventListener("keydown", e => { if(e.key==="Escape") kartKapat(); });
+
+function haber(m){
+  bildirim.textContent = m; bildirim.style.display = "block";
+  clearTimeout(zamanlayici); zamanlayici = setTimeout(()=>bildirim.style.display="none", 6000);
+}
+function kopyala(metin){
+  if(navigator.clipboard && window.isSecureContext){
+    return navigator.clipboard.writeText(metin).then(()=>true).catch(()=>yedekKopya(metin));
+  }
+  return Promise.resolve(yedekKopya(metin));
+}
+function yedekKopya(metin){
+  const t = document.createElement("textarea");
+  t.value = metin; t.style.position="fixed"; t.style.opacity="0";
+  document.body.appendChild(t); t.select();
+  let ok = false; try{ ok = document.execCommand("copy"); }catch(e){}
+  t.remove(); return ok;
+}
+
+// Sohbeti başlat: istemi kopyala + sohbet aracını yeni sekmede aç
+document.getElementById("baslat").onclick = () => {
+  if(!secili) return;
+  const sonuc = kopyala(istemOlustur(secili));      // önce kopyalama başlatılır
+  window.open(SOHBET_ADRESI, "_blank", "noopener");
+  sonuc.then(ok => haber(ok
+    ? "İstem kopyalandı! Yeni sekmedeki sohbet kutusuna yapıştır (Ctrl+V / basılı tut → Yapıştır)."
+    : "Kopyalanamadı. Karttaki \"istemi buradan kopyala\" bölümünü kullan."));
+};
+document.getElementById("elleKopyala").onclick = () => {
+  const ta = document.getElementById("kIstem"); ta.select();
+  kopyala(ta.value).then(ok => haber(ok ? "İstem kopyalandı!" : "Metni seçip Ctrl+C ile kopyala."));
+};
+</script>
+</body>
+</html>
